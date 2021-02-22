@@ -6,7 +6,7 @@ import { createRef } from 'react';
 
 class Channels extends Component {
 
-  componentWillMount(){
+  componentDidMount(){
     this.props.setActiveChannel();
   }
 

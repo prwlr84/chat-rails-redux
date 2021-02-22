@@ -29,12 +29,10 @@ class MsgForm extends Component {
     this.setState({value:''});
   }
 
-  componentWillMount(){
-    this.props.setUsr();
-  }
 
   componentDidMount() {
     this.messageBox.focus();
+    this.props.setUsr();
   }
 
   render() {

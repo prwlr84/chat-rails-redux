@@ -1,6 +1,6 @@
 import msgsFile from './msgs'
-export function setMsgs(active) {
-    const p = fetch(`https://wagon-chat.herokuapp.com/${active}/messages`)
+export function setMsgs() {
+    const p = fetch(`/api/v1/channels/general/messages`)
       .then(response => response.json());
   return {
     type: 'SET_MSGS',
@@ -46,4 +46,15 @@ export function setActiveChannel(channel) {
     payload: 'general'
   }
   }
+}
+
+export const SET_CHANNELS = 'SET_CHANNELS';
+
+export function setChannels() {
+const payload = fetch(`/api/v1/channels/general/messages`)
+      .then(response => response.json());
+  return {
+    type: SET_CHANNELS,
+    payload: payload
+ }
 }
