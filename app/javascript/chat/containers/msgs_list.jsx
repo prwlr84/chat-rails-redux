@@ -8,18 +8,9 @@ import MsgForm from './message_form';
 
 
 class MsgsList extends Component {
-  static defaultProps = {
-   msgs: []
-  }
-
-  componentWillMount(){
-
-     this.props.setMsgs(this.props.activeChannel);
-     //window.setInterval(()=>{this.props.setMsgs()}, 5000);
-  }
-
   componentDidMount() {
-    this.refresher = setInterval(()=>{this.props.setMsgs(this.props.activeChannel)}, 2000);
+    this.props.setMsgs();
+    this.refresher = setInterval(()=>{this.props.setMsgs()}, 200000);
   }
 
   componentDidUpdate() {
@@ -31,6 +22,7 @@ class MsgsList extends Component {
   }
 
   render(){
+    console.log(this.props.msgs);
     return(
         <div className="msgs-list" ref={(list) => { this.list = list; }} style={{height: '90vh'}}>
           {this.props.msgs.map( msg => <Msg msg={msg} key={msg.created_at} />)}
@@ -50,8 +42,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
  return {
-  activeChannel: state.activeChannel,
-  msgs: state.msgs.messages
+  msgs: state.msgs
  };
 }
 

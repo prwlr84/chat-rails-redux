@@ -8,7 +8,7 @@ class App extends Component {
   render(){
     return(
     <div className='row'>
-      <div className="logo col-sm-2"><img src="signatureLogo.svg" alt="" /></div>
+      <div className="logo col-sm-2"><img src="https://res.cloudinary.com/prwlr84/image/upload/v1613987651/signatureLogo_w3jejj.svg" alt="" /></div>
       <Channels />
       <div className="msg-panel col-sm-7">
         <MsgsList />
