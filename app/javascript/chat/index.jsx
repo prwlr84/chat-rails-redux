@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // internal modules
 
 import msgsReducer from './reducers/msgs_reducer';
+import channelsReducer from './reducers/channels_reducer';
 import App from './components/app';
 
 // State and reducers
@@ -20,7 +21,7 @@ const initialState = {
 
 const reducers = combineReducers({
   msgs: msgsReducer,
-  channels: (state = null, action) => state
+  channels: channelsReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

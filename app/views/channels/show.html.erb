@@ -1,4 +1,4 @@
 <div id="chat_app"></div>
 <% content_for :after_js do %>
-  <%= react_component("chat", {channels: @channels}) %>
+  <%= javascript_pack_tag ("chat") %>
 <% end %>

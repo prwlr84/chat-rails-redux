@@ -1,4 +1,4 @@
-import msgsFile from './msgs'
+
 export function setMsgs() {
     const p = fetch(`/api/v1/channels/general/messages`)
       .then(response => response.json());
@@ -48,13 +48,14 @@ export function setActiveChannel(channel) {
   }
 }
 
-export const SET_CHANNELS = 'SET_CHANNELS';
+
 
 export function setChannels() {
-const payload = fetch(`/api/v1/channels/all`)
+const payload = fetch(`/list`)
       .then(response => response.json());
+console.log(payload);
   return {
-    type: SET_CHANNELS,
+    type: "SET_CHANNELS",
     payload: payload
  }
 }
