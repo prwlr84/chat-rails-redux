@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import msgsReducer from './reducers/msgs_reducer';
 import App from './components/app';
+
 // State and reducers
 
 const initialState = {

@@ -51,7 +51,7 @@ export function setActiveChannel(channel) {
 export const SET_CHANNELS = 'SET_CHANNELS';
 
 export function setChannels() {
-const payload = fetch(`/api/v1/channels/general/messages`)
+const payload = fetch(`/api/v1/channels/all`)
       .then(response => response.json());
   return {
     type: SET_CHANNELS,
