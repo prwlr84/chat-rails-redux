@@ -7,4 +7,10 @@ class ChannelsController < ApplicationController
       @channels = Channel.all
     end
   end
+
+  def list
+    @channels = Channel.all
+    channels = @channels
+    render json: channels
+  end
 end

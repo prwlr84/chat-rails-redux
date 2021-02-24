@@ -11,9 +11,6 @@ class Channels extends Component {
   }
 
  render(){
-  function cFL(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
 
    return(
     <div className='channels col-sm-3'>
@@ -23,7 +20,7 @@ class Channels extends Component {
       <br/>
       <h2>More trending channels:</h2>
       <ul>
-        {this.props.channels.map(ch => <li key={ch} onClick={()=>this.props.setActiveChannel(ch)}>{cFL(ch)}</li>)}
+        {this.props.channels.map(ch => <li key={ch} onClick={()=>this.props.setActiveChannel(ch)}>{ch.name}</li>)}
       </ul>
     </div>
     )

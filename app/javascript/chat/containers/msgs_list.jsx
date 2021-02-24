@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setMsgs } from '../actions';
+import { setMsgs, setChannels } from '../actions';
 import { createRef } from 'react';
 import Msg from '../components/msg';
 import MsgForm from './message_form';
@@ -10,6 +10,7 @@ import MsgForm from './message_form';
 class MsgsList extends Component {
   componentDidMount() {
     this.props.setMsgs();
+    this.props.setChannels();
     this.refresher = setInterval(()=>{this.props.setMsgs()}, 200000);
   }
 
@@ -35,14 +36,15 @@ class MsgsList extends Component {
 
 function mapDispatchToProps(dispatch) {
  return bindActionCreators(
- { setMsgs: setMsgs },
+ { setMsgs: setMsgs, setChannels: setChannels },
  dispatch
  );
 }
 
 function mapStateToProps(state) {
  return {
-  msgs: state.msgs
+  msgs: state.msgs,
+  channels: state.channels
  };
 }
 
