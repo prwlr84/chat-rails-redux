@@ -9,9 +9,8 @@ import MsgForm from './message_form';
 
 class MsgsList extends Component {
   componentDidMount() {
-    this.props.setMsgs();
-    this.props.setChannels();
-    this.refresher = setInterval(()=>{this.props.setMsgs()}, 200000);
+    this.props.setMsgs('general');
+    this.refresher = setInterval(()=>{this.props.setMsgs('general')}, 200000);
   }
 
   componentDidUpdate() {

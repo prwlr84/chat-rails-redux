@@ -1,36 +1,46 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setActiveChannel } from '../actions';
+import { setChannels, setMsgs  } from '../actions';
 import { createRef } from 'react';
 
 class Channels extends Component {
-
-  componentDidMount(){
-    this.props.setActiveChannel();
+  constructor(props){
+    super(props);
+    this.state = { active: 'general' };
   }
 
- render(){
+  componentDidMount(){
+    this.props.setChannels();
+  }
+
+  selectChannel(channel){
+    this.props.setMsgs(channel);
+    this.setState({active: channel});
+  }
+
+  render(){
 
    return(
     <div className='channels col-sm-3'>
       <h2>Welcome!</h2>
       <h2>You are currently on the</h2>
+      <h2>#{this.state.active.toUpperCase()}</h2>
       <h2>Channel</h2>
       <br/>
       <h2>More trending channels:</h2>
       <ul>
-        {this.props.channels.map(ch => <li key={ch} onClick={()=>this.props.setActiveChannel(ch)}>{ch.name}</li>)}
+        {this.props.channels.map(ch => <li key={ch.id} onClick={() => this.selectChannel(ch.name)}>{ch.name}</li>)}
       </ul>
     </div>
-    )
+  )
  }
 }
 
 
 function mapDispatchToProps(dispatch) {
  return bindActionCreators(
-   { setActiveChannel: setActiveChannel  },
+   { setChannels: setChannels, setMsgs: setMsgs  },
    dispatch
    );
 }
