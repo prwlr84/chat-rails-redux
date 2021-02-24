@@ -1,6 +1,6 @@
 
-export function setMsgs() {
-    const p = fetch(`/api/v1/channels/general/messages`)
+export function setMsgs(channel) {
+    const p = fetch(`/api/v1/channels/${channel}/messages`)
       .then(response => response.json());
   return {
     type: 'SET_MSGS',
@@ -35,25 +35,9 @@ export function setUsr(){
    }
 }
 
-export function setActiveChannel(channel) {
-  if(channel){
-  return{
-    type: 'SET_ACTIVE_CHANNEL',
-    payload: channel
-  }} else {
-  return{
-    type: 'SET_ACTIVE_CHANNEL',
-    payload: 'general'
-  }
-  }
-}
-
-
-
 export function setChannels() {
 const payload = fetch(`/list`)
       .then(response => response.json());
-console.log(payload);
   return {
     type: "SET_CHANNELS",
     payload: payload
