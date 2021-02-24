@@ -1,6 +1,6 @@
 class Api::V1::MessagesController < ApplicationController
   before_action :set_channel
-
+  skip_before_action :verify_authenticity_token
   def index
     messages = @channel.messages.order('created_at ASC')
     render json: messages # see Message.as_json method
@@ -17,5 +17,6 @@ class Api::V1::MessagesController < ApplicationController
 
   def set_channel
     @channel = Channel.find_by(name: params[:channel_id])
+    puts params
   end
 end
