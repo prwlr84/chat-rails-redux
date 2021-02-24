@@ -9,8 +9,7 @@ export function setMsgs(channel) {
 };
 
 export function createMessage(data) {
-  console.log(data);
-  fetch('https://wagon-chat.herokuapp.com/general/messages', {
+  fetch(`/api/v1/channels/${data.channel}/messages`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

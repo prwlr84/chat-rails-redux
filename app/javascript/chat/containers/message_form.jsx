@@ -8,7 +8,7 @@ import { setMsgs } from '../actions';
 class MsgForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {value: '', channel: 'general'};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,8 +21,7 @@ class MsgForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const text = {
-      channel: this.props.active,
-      author: this.props.author,
+      channel: this.props.channel,
       content: this.state.value
     }
     createMessage(text);
@@ -32,7 +31,6 @@ class MsgForm extends Component {
 
   componentDidMount() {
     this.messageBox.focus();
-    this.props.setUsr();
   }
 
   render() {
