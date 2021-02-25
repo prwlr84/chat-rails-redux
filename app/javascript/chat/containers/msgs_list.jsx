@@ -22,7 +22,6 @@ class MsgsList extends Component {
   }
 
   render(){
-    console.log(this.props.msgs);
     return(
         <div className="msgs-list" ref={(list) => { this.list = list; }} style={{height: '90vh'}}>
           {this.props.msgs.map( msg => <Msg msg={msg} key={msg.created_at} />)}
@@ -35,7 +34,7 @@ class MsgsList extends Component {
 
 function mapDispatchToProps(dispatch) {
  return bindActionCreators(
- { setMsgs: setMsgs, setChannels: setChannels },
+ { setMsgs: setMsgs },
  dispatch
  );
 }
@@ -43,7 +42,6 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
  return {
   msgs: state.msgs,
-  channels: state.channels
  };
 }
 

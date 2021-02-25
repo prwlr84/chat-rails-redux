@@ -8,11 +8,12 @@ class Msg extends Component {
 
 
   render(){
+    console.log(this.props);
     const colorHash = new ColorHash();
     const date = new Date(this.props.msg.created_at);
     return(
       <div className="msg">
-        <p style={{color: colorHash.hex(this.props.msg.author)}}>{this.props.msg.author}</p>
+        <p style={{color: colorHash.hex(this.props.msg.user_id)}}>{this.props.msg.user_id}</p>
         <h3>{this.props.msg.content}</h3>
         <p>{ date.toLocaleTimeString()}</p>
       </div>

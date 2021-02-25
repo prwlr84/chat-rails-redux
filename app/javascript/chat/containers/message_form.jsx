@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { createMessage } from '../actions/index';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setUsr } from '../actions';
 import { setMsgs } from '../actions';
+
 
 class MsgForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: '', channel: 'general'};
+    this.state = {value: '', channel: this.props.active };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,10 +21,10 @@ class MsgForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const text = {
-      channel: this.props.channel,
+      channel: this.props.activeChannel,
       content: this.state.value
     }
-    createMessage(text);
+    createMessage(text, this.props.active);
     this.setState({value:''});
   }
 
@@ -45,18 +45,11 @@ class MsgForm extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
- return bindActionCreators(
- { setUsr: setUsr },
- dispatch
- );
-}
 
 function mapStateToProps(state) {
  return {
-  author: state.curUsr,
-  active: state.activeChannel
+  active: state.activeChannel,
  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MsgForm);
+export default connect(mapStateToProps)(MsgForm);

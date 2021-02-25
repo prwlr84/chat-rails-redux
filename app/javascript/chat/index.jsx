@@ -10,18 +10,21 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import msgsReducer from './reducers/msgs_reducer';
 import channelsReducer from './reducers/channels_reducer';
+import activeChannelReducer from './reducers/active_channel_reducer';
 import App from './components/app';
 
 // State and reducers
 
 const initialState = {
+  activeChannel: [],
   channels: [],
   msgs: []
 }
 
 const reducers = combineReducers({
   msgs: msgsReducer,
-  channels: channelsReducer
+  channels: channelsReducer,
+  activeChannel: activeChannelReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -25,6 +25,9 @@ div.row {
     background-color: rgba(17, 90, 160,1);
     height: 100vh;
 
+    li:hover{
+      cursor: pointer;
+    }
   }
 
 }
