@@ -24,7 +24,7 @@ class MsgsList extends Component {
   render(){
     return(
         <div className="msgs-list" ref={(list) => { this.list = list; }} style={{height: '90vh'}}>
-          {this.props.msgs.map( msg => <Msg msg={msg} key={msg.created_at} />)}
+          {this.props.msgs.map( msg => <Msg msg={msg} key={msg.created_at} users={this.props.users}/>)}
         </div>
       )
   }
@@ -42,6 +42,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
  return {
   msgs: state.msgs,
+  users: state.users
  };
 }
 
