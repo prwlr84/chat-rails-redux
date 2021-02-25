@@ -14,23 +14,28 @@ import activeChannelReducer from './reducers/active_channel_reducer';
 import App from './components/app';
 
 // State and reducers
-
+const app = document.querySelector('#chat_app');
 const initialState = {
   activeChannel: [],
   channels: [],
-  msgs: []
+  msgs: [],
+  users: JSON.parse(app.dataset.users)
 }
 
 const reducers = combineReducers({
   msgs: msgsReducer,
   channels: channelsReducer,
-  activeChannel: activeChannelReducer
+  activeChannel: activeChannelReducer,
+  users: (state = null, action) => state
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = composeEnhancers(applyMiddleware( logger, reduxPromise));
 const store = createStore(reducers, initialState, middlewares);
 // render an instance of the component in the DOM
+// document.addEventListener('DOMContentLoaded', () => {
+// const node = document.getElementById('content_div');
+// const authenticity_token = JSON.parse(node.getAttribute('authenticity_token'));
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
