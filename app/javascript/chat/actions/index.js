@@ -8,31 +8,23 @@ export function setMsgs(channel) {
   };
 };
 
-export function createMessage(data) {
-  fetch(`/api/v1/channels/${data.channel}/messages`, {
+export function createMessage(text, channel) {
+  fetch(`/api/v1/channels/${channel}/messages`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(text),
   })
 .then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
+.then(text => {
+  console.log('Success:', text);
 })
 .catch((error) => {
   console.error('Error:', error);
 });
 }
 
-export function setUsr(){
-  const usr = prompt("Username") || "anonymus"
-
-  return {
-   type: 'SET_USR',
-   payload: usr
-   }
-}
 
 export function setChannels() {
 const payload = fetch(`/list`)
@@ -40,5 +32,13 @@ const payload = fetch(`/list`)
   return {
     type: "SET_CHANNELS",
     payload: payload
+ }
+}
+
+export function setActive(channel) {
+
+  return {
+    type: 'SET_ACTIVE',
+    payload: channel
  }
 }

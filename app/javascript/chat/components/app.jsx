@@ -13,7 +13,7 @@ class App extends Component {
       <Channels />
       <div className="msg-panel col-sm-7">
         <MsgsList />
-        <MsgForm channel={this.props.match.params.channel}/>
+        <MsgForm />
       </div>
     </div>
     )
