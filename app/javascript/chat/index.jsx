@@ -19,14 +19,16 @@ const initialState = {
   activeChannel: [],
   channels: [],
   msgs: [],
-  users: JSON.parse(app.dataset.users)
+  users: JSON.parse(app.dataset.users),
+  curusr: JSON.parse(app.dataset.curusr.slice(0, -1))
 }
 
 const reducers = combineReducers({
   msgs: msgsReducer,
   channels: channelsReducer,
   activeChannel: activeChannelReducer,
-  users: (state = null, action) => state
+  users: (state = null, action) => state,
+  curusr: (state = null, action) => state
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

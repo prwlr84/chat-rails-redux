@@ -1,4 +1,4 @@
-<div id="chat_app" data-users=<%= User.all.to_json %> ></div>
+<div id="chat_app" data-curusr=<%= current_user.to_json %>, data-users=<%= User.all.to_json %> ></div>
 <% content_for :after_js do %>
   <%= javascript_pack_tag ("chat") %>
 <% end %>
