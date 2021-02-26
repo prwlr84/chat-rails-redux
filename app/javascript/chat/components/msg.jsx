@@ -10,8 +10,7 @@ class Msg extends Component {
   render(){
     const colorHash = new ColorHash();
     const date = new Date(this.props.msg.created_at);
-    const user = this.props.users.find(user => user.id === +this.props.msg.user_id)
-    console.log(user);
+    const user = this.props.users.find(user => user.id === +this.props.msg.user_id);
     return(
       <div className="msg">
         <p style={{color: colorHash.hex(user.email)}}>{user.email}</p>

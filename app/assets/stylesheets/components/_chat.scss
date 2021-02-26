@@ -24,10 +24,14 @@ div.row {
     color: white;
     background-color: rgba(17, 90, 160,1);
     height: 100vh;
+    display: flex-column;
 
     li:hover{
       cursor: pointer;
+      opacity:0.5;
     }
+
+    li:before { content: '\1F4AD'; margin-left: -20px; margin-right: 10px; }
   }
 
 }
@@ -63,10 +67,36 @@ div.msg-panel {
     input:last-child{
       width: 10vw;
       border-radius: 25px;
-      border: 1px solid rgba(17, 90, 160,1);
-      color: rgba(17, 90, 160,1);
-      background-color: rgba(17, 90, 160,0.3);
+      padding: 5px 15px;
+      border: 1px solid white;
+      background-color: rgba(17, 90, 160,1);
+      color: white;
       margin: 5px;
     }
+
+    input:last-child:hover{
+      opacity: 0.5;
+    }
   }
+}
+
+div.channels>form {
+  width: 50%;
+  position: absolute;
+  bottom: 3%;
+  left: 33%;
+}
+
+
+
+div.channels>form>button{
+  border-radius: 25px;
+  padding: 5px 15px;
+  border: 1px solid white;
+  background-color: rgba(17, 90, 160,1);
+  color: white;
+}
+
+div.channels>form>button:hover{
+  opacity: 0.5;
 }
