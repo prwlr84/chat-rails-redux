@@ -9,7 +9,14 @@ class App extends Component {
     console.log(this.props);
     return(
     <div className='row'>
-      <div className="logo col-sm-2"><img src="https://res.cloudinary.com/prwlr84/image/upload/v1613987651/signatureLogo_w3jejj.svg" alt="" /></div>
+      <div className="logo col-sm-2">
+        <img src="https://res.cloudinary.com/prwlr84/image/upload/v1613987651/signatureLogo_w3jejj.svg" alt="" />
+        <div className="logos col-sm-2">
+          <img className="col-4" src="../assets/rails.svg" alt="" />
+          <img className="col-4" src="../assets/react.svg" alt="" />
+          <img className="col-4" src="../assets/redux.svg" alt="" />
+        </div>
+      </div>
       <Channels />
       <div className="msg-panel col-sm-7">
         <MsgsList />

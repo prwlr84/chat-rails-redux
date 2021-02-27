@@ -42,7 +42,13 @@ class Channels extends Component {
       <br/>
       <h3>More trending channels:</h3>
       <ul>
-        {this.props.channels.map(ch => <li key={ch.id} onClick={() => this.selectChannel(ch.name)}>{ch.name}</li>)}
+        {this.props.channels.map(ch => {
+          return(
+            <div>
+              <li key={ch.id} onClick={() => this.selectChannel(ch.name)}><i class="fas fa-user-astronaut"></i> {ch.name}</li>
+            </div>)}
+          )
+        }
       </ul>
       <form className="button_to" method="post" action="/users/sign_out">
         <input type="hidden" name="_method" value="delete" />
