@@ -31,7 +31,9 @@ div.row {
       opacity:0.5;
     }
 
-    li:before { content: '\1F4AD'; margin-left: -20px; margin-right: 10px; }
+    li {
+      list-style: none;
+    }
   }
 
 }
@@ -65,7 +67,6 @@ div.msg-panel {
     }
 
     input:last-child{
-      width: 10vw;
       border-radius: 25px;
       padding: 5px 15px;
       border: 1px solid white;
@@ -100,3 +101,16 @@ div.channels>form>button{
 div.channels>form>button:hover{
   opacity: 0.5;
 }
+
+div.logos {
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    div.logos {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+  }

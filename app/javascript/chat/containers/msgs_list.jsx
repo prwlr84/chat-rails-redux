@@ -10,7 +10,7 @@ import MsgForm from './message_form';
 class MsgsList extends Component {
   componentDidMount() {
     this.props.setMsgs('general');
-    this.refresher = setInterval(()=>{this.props.setMsgs('general')}, 2000);
+    this.refresher = setInterval(()=>{this.props.setMsgs(this.props.active)}, 2000);
   }
 
   componentDidUpdate() {
@@ -42,7 +42,8 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
  return {
   msgs: state.msgs,
-  users: state.users
+  users: state.users,
+  active: state.activeChannel
  };
 }
 
