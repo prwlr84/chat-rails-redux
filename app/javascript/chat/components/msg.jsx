@@ -13,7 +13,7 @@ class Msg extends Component {
     const user = this.props.users.find(user => user.id === +this.props.msg.user_id);
     return(
       <div className="msg">
-        <p style={{color: colorHash.hex(user.email)}}>{user.email}</p>
+        <p style={{color: colorHash.hex(user.email)}}>{user.nick || user.email}</p>
         <h3>{this.props.msg.content}</h3>
         <p>{ date.toLocaleTimeString()}</p>
       </div>

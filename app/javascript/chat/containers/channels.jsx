@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setChannels, setMsgs, setActive  } from '../actions';
+import { setChannels, setMsgs, setActive } from '../actions';
 import { createRef } from 'react';
 
 export const getMetaContent = (name) => {
@@ -15,6 +15,8 @@ console.log(metas);
 }
 
 class Channels extends Component {
+
+
   componentDidMount(){
     this.props.setChannels();
   }
@@ -34,7 +36,7 @@ class Channels extends Component {
    return(
     <div className='channels col-sm-3'>
       <h2>Welcome!</h2>
-      <h2> {this.props.curusr.email}</h2>
+      <h2> {this.props.curusr.nick || this.props.curusr.email}</h2>
       <br/>
       <h3>You are currently on the</h3>
       <h2>#{this.props.active}</h2>
@@ -44,8 +46,8 @@ class Channels extends Component {
       <ul>
         {this.props.channels.map(ch => {
           return(
-            <div>
-              <li key={ch.id} onClick={() => this.selectChannel(ch.name)}><i class="fas fa-user-astronaut"></i> {ch.name}</li>
+            <div key={ch.created_at}>
+              <li onClick={() => this.selectChannel(ch.name)}><i className="fas fa-user-astronaut"></i> {ch.name}</li>
             </div>)}
           )
         }
@@ -53,7 +55,7 @@ class Channels extends Component {
       <form className="button_to" method="post" action="/users/sign_out">
         <input type="hidden" name="_method" value="delete" />
         <input type="hidden" name="authenticity_token" value={getMetaContent("csrf-token")} />
-        <button type="submit"><i class="fas fa-user-times"></i> Log out</button>
+        <button type="submit"><i className="fas fa-user-times"></i> Log out</button>
       </form>
     </div>
   )

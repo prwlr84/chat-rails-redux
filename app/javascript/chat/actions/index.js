@@ -8,6 +8,15 @@ export function setMsgs(channel) {
   };
 };
 
+export function setUsers() {
+    const p = fetch(`/userlist`)
+      .then(response => response.json());
+  return {
+    type: 'SET_USERS',
+    payload: p
+  };
+};
+
 export function createMessage(text, channel) {
   fetch(`/api/v1/channels/${channel}/messages`, {
     method: 'POST',

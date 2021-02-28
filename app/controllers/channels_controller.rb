@@ -13,4 +13,10 @@ class ChannelsController < ApplicationController
     channels = @channels
     render json: channels
   end
+
+  def userlist
+    @users = User.all
+    users = @users
+    render json: users
+  end
 end
