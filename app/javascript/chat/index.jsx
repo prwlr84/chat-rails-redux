@@ -11,6 +11,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import msgsReducer from './reducers/msgs_reducer';
 import channelsReducer from './reducers/channels_reducer';
 import activeChannelReducer from './reducers/active_channel_reducer';
+import usersReducer from './reducers/users_reducer';
 import App from './components/app';
 
 // State and reducers
@@ -19,7 +20,7 @@ const initialState = {
   activeChannel: [],
   channels: [],
   msgs: [],
-  users: JSON.parse(app.dataset.users),
+  users: [],
   curusr: JSON.parse(app.dataset.curusr.slice(0, -1))
 }
 
@@ -27,7 +28,7 @@ const reducers = combineReducers({
   msgs: msgsReducer,
   channels: channelsReducer,
   activeChannel: activeChannelReducer,
-  users: (state = null, action) => state,
+  users: usersReducer,
   curusr: (state = null, action) => state
 });
 
