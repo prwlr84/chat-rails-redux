@@ -28,6 +28,11 @@ div.login{
       right: 0;
       top: 0;
       margin: 10px;
+      max-height: 5vh;
+    }
+
+    div.logos>img:last-child{
+      filter: brightness(200%);
     }
 
     div.logos>* {
