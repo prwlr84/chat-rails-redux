@@ -23,9 +23,9 @@ end
   users << (User.create(email: Faker::Internet.email , password: "testtest"))
 end
 
-20.times do
-  Message.create! user: users.sample, channel: channels.sample, content: Faker::Movie.quote
-end
+# 20.times do
+#   Message.create! user: users.sample, channel: channels.sample, content: Faker::Movie.quote
+# end
 
 puts 'Channels:'
 channels.each do |channel|
