@@ -37,7 +37,7 @@ class MsgForm extends Component {
     return (
       <div className="form">
         <form onSubmit={this.handleSubmit}>
-          <input ref={(input) => { this.messageBox = input; }} id='focus' type="text" value={this.state.value} onChange={this.handleChange} />
+          <input className="col-9" ref={(input) => { this.messageBox = input; }} id='focus' type="text" value={this.state.value} onChange={this.handleChange} />
           <input type="submit"/>
         </form>
       </div>

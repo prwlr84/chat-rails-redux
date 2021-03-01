@@ -13,7 +13,18 @@ body::-webkit-scrollbar {
   margin-bottom: 20px;
 }
 
+
+
 div.row {
+
+  div.logo{
+    display: flex;
+  }
+
+  div.logo>img{
+    margin: 5px;
+    align-self: flex-start;
+  }
 
   .msgs-list{
     overflow-y: scroll;
@@ -24,7 +35,6 @@ div.row {
     color: white;
     background-color: rgba(17, 90, 160,1);
     height: 100vh;
-    display: flex-column;
 
     li:hover{
       cursor: pointer;
@@ -51,6 +61,8 @@ div.msg-panel {
   padding: 0;
 
   div.msgs-list{
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: white;
   }
 
@@ -58,6 +70,10 @@ div.msg-panel {
     display: flex;
     justify-content: center;
     margin-top: 2%;
+
+    form{
+      display: flex;
+    }
 
     input:first-child{
       width: 30vw;
@@ -104,13 +120,23 @@ div.channels>form>button:hover{
 
 div.logos {
   opacity: 0.7;
+  margin-top: 10px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
     div.logos {
       position: fixed;
       bottom: 0;
       left: 0;
     }
   }
+
+@media (max-width: 576px){
+  div.logos {
+      position: absolute;
+      top: 0;
+      right: 0;
+  }
+}
